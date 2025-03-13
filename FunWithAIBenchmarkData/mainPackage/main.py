@@ -2,6 +2,7 @@
 # Bill Nicholson
 # nicholdw@ucmail.uc.edu
 
+import string
 from readingLevelPackage.readingLevel import Reading_Level
 from utilitiesPackage.utilities import *
 from utilitiesPackage.CSV_Utilities import *
@@ -25,11 +26,25 @@ if __name__ == "__main__":
 
     #0. Append all the prompts into a big string - See utilities.convert_dictionaries_to_string()
     
+    prompt_text = ""
+    for i in range(0, len(questions)):
+        prompt_text += " " + questions[i]["prompt"]
+
+    print('\n\nprompt_text:', prompt_text)
     
     #1. Perform reading level analysis on the big string and print the results to the console.
     Reading_Level.compute_readability_indices("MMLU", text)
 
     #2. Process the big string to find the longest word
+    import re
+    list_words = re.findall(r'\b\w+\b', prompt_text)
+    max_len = 0
+    longest_word = ""
+    for word in list_words:
+        if len(word) > max_len:
+            max_len = len(word)
+            longest_word = word
+    print('\nlongest word:', longest_word, 'length:', max_len)
 
 
     #3. Process the big string to find the most prevalent word
