@@ -26,16 +26,19 @@ if __name__ == "__main__":
 
     #0. Append all the prompts into a big string - See utilities.convert_dictionaries_to_string()
     
-    prompt_text = ""
-    for i in range(0, len(questions)):
-        prompt_text += " " + questions[i]["prompt"]
-
-    print('\n\nprompt_text:', prompt_text)
+    ## Starting
+    prompt_text = " ".join(q['prompt'].lower() for q in questions)
+    ## Ending
     
     #1. Perform reading level analysis on the big string and print the results to the console.
+    
+    ## Starting
     Reading_Level.compute_readability_indices("MMLU", text)
+    ## Ending
 
     #2. Process the big string to find the longest word
+
+    ## Starting
     import re
     list_words = re.findall(r'\b\w+\b', prompt_text)
     max_len = 0
@@ -44,20 +47,38 @@ if __name__ == "__main__":
         if len(word) > max_len:
             max_len = len(word)
             longest_word = word
-    print('\nlongest word:', longest_word, 'length:', max_len)
-
+    print('\nLongest word:', longest_word, '\nLength:', max_len)
+    ## Ending
 
     #3. Process the big string to find the most prevalent word
     
+    ## Starting
+    dic_words = {}
+    for word in list_words:
+        if word not in dic_words:
+            dic_words[word] = 1
+        else:
+            dic_words[word] += 1
+    print('\nMost prevalent word:', max(dic_words, key=dic_words.get), '\nNumber of occurrences:', dic_words[max(dic_words, key=dic_words.get)])
+    ## Ending
 
     #4. Use the VS debugger: set a breakpoint somewhere to pause the project when a prompt containing the word "PEST" is read from the original CSV file
     
+    ## Starting
+    ## Ending
 
     #5. Perform some data visualization on the text. Research Data Vis libraries and apply one.
      
+    ## Starting
+    #### NOT DONE
+    from wordcloud import WordCloud
+    wordcloud = WordCloud.generate(prompt_text)
+    import matplotlib.pyplot as plt
+    plt.imshow(wordcloud, interpolation='bilinear')
+    ## Ending
 
-    #6a. Write all the questions and possible answers (without the correct answer) to a text file. Use a CSV format and create a unique identifier field for each question.
-    #6b. Write the question identifier (see 6a, above) and the correct answer to another text file. Use a CSV format.
+    #6a. Write all the questions and possible answers (wit unique identifier field for each question.
+    #6b. Write the question identifier (see 6a, above) and the cohout the correct answer) to a text file. Use a CSV format and create arrect answer to another text file. Use a CSV format.
     questions_written = write_questions_to_text_files("MMLU", questions)
     print(questions_written, "questions written to the file.")
     
