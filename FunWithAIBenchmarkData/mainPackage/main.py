@@ -31,9 +31,11 @@ if __name__ == "__main__":
     ## Ending
     
     #1. Perform reading level analysis on the big string and print the results to the console.
-    
-    ## Starting
     Reading_Level.compute_readability_indices("MMLU", text)
+
+    ## Starting
+    reading_level_analysis = Reading_Level.compute_readability_indices("MMLU", prompt_text)
+    print(f'\nReading level analysis: {reading_level_analysis}')
     ## Ending
 
     #2. Process the big string to find the longest word
@@ -55,29 +57,33 @@ if __name__ == "__main__":
     ## Starting
     dic_words = {}
     for word in list_words:
-        if word not in dic_words:
-            dic_words[word] = 1
+        if word.lower() not in dic_words:
+            dic_words[word.lower()] = 1
         else:
-            dic_words[word] += 1
+            dic_words[word.lower()] += 1
     print('\nMost prevalent word:', max(dic_words, key=dic_words.get), '\nNumber of occurrences:', dic_words[max(dic_words, key=dic_words.get)])
     ## Ending
 
     #4. Use the VS debugger: set a breakpoint somewhere to pause the project when a prompt containing the word "PEST" is read from the original CSV file
     
     ## Starting
+    ## Need to be assigned
     ## Ending
 
     #5. Perform some data visualization on the text. Research Data Vis libraries and apply one.
      
     ## Starting
-    #### NOT DONE
     from wordcloud import WordCloud
-    wordcloud = WordCloud.generate(prompt_text)
     import matplotlib.pyplot as plt
+
+    wordcloud = WordCloud(width = 800, height = 400, background_color = 'white').generate(prompt_text)
+    plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
     ## Ending
 
-    #6a. Write all the questions and possible answers (wit unique identifier field for each question.
+    #6a. Write all the questions and possible answers (with unique identifier field for each question.
     #6b. Write the question identifier (see 6a, above) and the cohout the correct answer) to a text file. Use a CSV format and create arrect answer to another text file. Use a CSV format.
     questions_written = write_questions_to_text_files("MMLU", questions)
     print(questions_written, "questions written to the file.")
