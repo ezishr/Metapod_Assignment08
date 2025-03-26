@@ -19,11 +19,9 @@ def create_wordcloud(text):
     @param String text: The text to create the word cloud from.
     @return: None
     """
-
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
     
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')  
-    plt.title("IMDB Movie Reviews Word Cloud")
     plt.show()

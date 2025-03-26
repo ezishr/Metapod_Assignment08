@@ -3,6 +3,7 @@
 # nicholdw@ucmail.uc.edu
 
 import string
+from WordCloudVis import wordcloudvis
 from readingLevelPackage.readingLevel import Reading_Level
 from utilitiesPackage.utilities import *
 from utilitiesPackage.CSV_Utilities import *
@@ -25,6 +26,7 @@ if __name__ == "__main__":
     print(questions[0])
     
     text = convert_dictionaries_to_string(questions, ["prompt", "possible answers"])
+    print("\nText from dictionaries:", text[0:500])
     #print("\ntext from dictionaries:", text[0:500])
 
     #0. Append all the prompts into a big string - See utilities.convert_dictionaries_to_string()
@@ -62,5 +64,5 @@ if __name__ == "__main__":
     """
 
     # Add WordCloudVis
-    # wordcloudvis.create_wordcloud(text)
+    create_wordcloud(text)
 
