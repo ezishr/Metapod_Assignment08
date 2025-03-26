@@ -8,6 +8,9 @@ from utilitiesPackage.utilities import *
 from utilitiesPackage.CSV_Utilities import *
 from PDFPackage.PDFUtilities import *
 
+# Import WordCloudVis
+from WordCloudVis.wordcloudvis import *
+
 if __name__ == "__main__":
 
     CSV_Processor = MMLU_CSV_Processor("dataPackage/MMLU/data/", ["management_test.csv"])
@@ -57,3 +60,7 @@ if __name__ == "__main__":
     for key in reading_level_indices.keys():
         print(key, ":", reading_level_indices[key])
     """
+
+    # Add WordCloudVis
+    # wordcloudvis.create_wordcloud(text)
+

@@ -49,6 +49,10 @@
     <Compile Include="utilitiesPackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WordCloudVis\wordcloudvis.py" />
+    <Compile Include="WordCloudVis\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dataPackage\" />
@@ -59,6 +63,7 @@
     <Folder Include="PDFPackage\" />
     <Folder Include="readingLevelPackage\" />
     <Folder Include="utilitiesPackage\" />
+    <Folder Include="WordCloudVis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="dataPackage\MMLU\data\abstract_algebra_test.csv" />
