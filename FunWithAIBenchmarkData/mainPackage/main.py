@@ -3,18 +3,17 @@
 # nicholdw@ucmail.uc.edu
 
 import string
-from WordCloudVis import wordcloudvis
 from readingLevelPackage.readingLevel import Reading_Level
 from utilitiesPackage.utilities import *
 from utilitiesPackage.CSV_Utilities import *
 from PDFPackage.PDFUtilities import *
-from Metapodpackage.Pokemon import add_image
 
-# Import WordCloudVis
-# from WordCloudVis.wordcloudvis import *
+from Metapodpackage.Pokemon import * # Import Metapodpackage to add image
 
-from wordcloud import WordCloud
+from wordcloud import WordCloud # Import WordCloud and Matplotlib to create wordcloud visualization
 import matplotlib.pyplot as plt
+
+from SentenceLengthPackage.SentenceLength import * # Import SentenceLengthPackage to create sentence length visualization
 
 if __name__ == "__main__":
 
@@ -46,16 +45,12 @@ if __name__ == "__main__":
 
     #5. Perform some data visualization on the text. Research Data Vis libraries and apply one.
 
+    # Create a word cloud
     wordcloud = WordCloud(
         width = 800,
         height = 400,
         background_color = 'white'
     ).generate(text)
-
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
 
     #6a. Write all the questions and possible answers (with unique identifier field for each question.
     #6b. Write the question identifier (see 6a, above) and the cohout the correct answer) to a text file. Use a CSV format and create arrect answer to another text file. Use a CSV format.
@@ -78,8 +73,18 @@ if __name__ == "__main__":
         print(key, ":", reading_level_indices[key])
     """
 
-    add_image()
+    # Add 3 visualizations to the same figure using matplotlib.pyplot
+    fig, axes = plt.subplots(1, 3, figsize=(12, 5))
 
-    # Add WordCloudVis
-    # create_wordcloud(text)
+    axes[0].imshow(wordcloud, interpolation='bilinear')
+    axes[0].axis("off")
+    axes[0].set_title("Word Cloud")
+    
+    add_image(axes[1])
+    axes[1].set_title("Metapod Image")
 
+    sentence_length_graph(questions, axes[2])
+    axes[2].set_title("Sentence Length Distribution")
+
+    plt.tight_layout()
+    plt.show()

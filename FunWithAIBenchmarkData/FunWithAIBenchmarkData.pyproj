@@ -47,6 +47,10 @@
     <Compile Include="readingLevelPackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SentenceLengthPackage\SentenceLength.py" />
+    <Compile Include="SentenceLengthPackage\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utilitiesPackage\CSV_Utilities.py">
       <SubType>Code</SubType>
     </Compile>
@@ -54,10 +58,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utilitiesPackage\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WordCloudVis\wordcloudvis.py" />
-    <Compile Include="WordCloudVis\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -71,8 +71,8 @@
     <Folder Include="Metapodpackage\" />
     <Folder Include="PDFPackage\" />
     <Folder Include="readingLevelPackage\" />
+    <Folder Include="SentenceLengthPackage\" />
     <Folder Include="utilitiesPackage\" />
-    <Folder Include="WordCloudVis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="caterpillarPackage\Metapod.png" />
