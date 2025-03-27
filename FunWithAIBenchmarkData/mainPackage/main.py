@@ -76,11 +76,20 @@ if __name__ == "__main__":
     from wordcloud import WordCloud
     import matplotlib.pyplot as plt
 
-    wordcloud = WordCloud(width = 800, height = 400, background_color = 'white').generate(prompt_text)
+    wordcloud = WordCloud(
+        width = 800,
+        height = 400, 
+        background_color = 'white'
+    ).generate(prompt_text)
+
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
+    plt.title("WordCloud of MMLU Prompts")
+    plt.tight_layout()
     plt.show()
+
+
     ## Ending
 
     #6a. Write all the questions and possible answers (with unique identifier field for each question.
