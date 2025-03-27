@@ -11,7 +11,7 @@ from PDFPackage.PDFUtilities import *
 from Metapodpackage.Pokemon import add_image
 
 # Import WordCloudVis
-from WordCloudVis.wordcloudvis import *
+# from WordCloudVis.wordcloudvis import *
 
 if __name__ == "__main__":
 
@@ -67,5 +67,5 @@ if __name__ == "__main__":
     add_image()
 
     # Add WordCloudVis
-    create_wordcloud(text)
+    # create_wordcloud(text)
 

@@ -10,8 +10,8 @@
 # Citations: https://www.geeksforgeeks.org/generating-word-cloud-python/
 # Anything else that's relevant: N/A
 
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+# from wordcloud import WordCloud
+# import matplotlib.pyplot as plt
 
 def create_wordcloud(text):
     """
