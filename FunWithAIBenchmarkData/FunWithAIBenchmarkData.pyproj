@@ -21,11 +21,18 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="caterpillarPackage\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dataPackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mainPackage\main.py" />
     <Compile Include="mainPackage\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metapodpackage\Pokemon.py" />
+    <Compile Include="Metapodpackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PDFPackage\PDFUtilities.py">
@@ -55,17 +62,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="caterpillarPackage\" />
     <Folder Include="dataPackage\" />
     <Folder Include="dataPackage\MMLU\" />
     <Folder Include="dataPackage\MMLU\data\" />
     <Folder Include="dataPackage\MMLU\results\" />
     <Folder Include="mainPackage\" />
+    <Folder Include="Metapodpackage\" />
     <Folder Include="PDFPackage\" />
     <Folder Include="readingLevelPackage\" />
     <Folder Include="utilitiesPackage\" />
     <Folder Include="WordCloudVis\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="caterpillarPackage\Metapod.png" />
     <Content Include="dataPackage\MMLU\data\abstract_algebra_test.csv" />
     <Content Include="dataPackage\MMLU\data\anatomy_test.csv" />
     <Content Include="dataPackage\MMLU\data\astronomy_test.csv" />
